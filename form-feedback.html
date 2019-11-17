@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin - Blank Page</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="index.html">Employee Happiness</a>
+
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Buscar por..." aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          </div>
+        </li>
+      </ul>
+
+    </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Usuário</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="login.html">Login</a>
+          <a class="dropdown-item" href="register.html">Registre-se</a>
+          <a class="dropdown-item" href="forgot-password.html">Esqueceu a senha?</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Funcionários</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="tables.html">Listagem</a>
+          <a class="dropdown-item" href="form-employee.html">Cadastrar</a>
+        </div>
+      </li>
+      <li class="nav-item">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-star"></i>
+          <span>Feedback</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="form-feedback.html">Cadastrar</a>
+        </div>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Blank Page</li>
+        </ol>
+
+        <!-- Page Content -->
+        <h1>Cadastrar feedback</h1>
+        <hr>
+        <div class="container">
+          <div class="mx-auto">
+            <form>
+              <div class="form-group">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col">
+                      <label for="feedbackPara">Feedback para</label>
+                      <select class="form-control" id="feedbackPara">
+                        <option>Tiger Nixon</option>
+                        <option>Garrett Winters</option>
+                        <option>Ashton Cox</option>
+                        <option>Cedric Kelly</option>
+                        <option>Airi Satou</option>
+                        <option>Brielle Williamson</option>
+                        <option>Herrod Chandler</option>
+                        <option>Rhona Davidson</option>
+                        <option>Colleen Hurst</option>
+                        <option>Sonya Frost</option>
+                        <option>Jena Gaines</option>
+                        <option>Quinn Flynn</option>
+                        <option>Charde Marshall</option>
+                        <option>Haley Kennedy</option>
+                        <option>Tatyana Fitzpatrick</option>
+                        <option>Michael Silva</option>
+                        <option>Paul Byrd</option>
+                        <option>Gloria Little</option>
+                        <option>Bradley Greer</option>
+                        <option>Dai Rios</option>
+                        <option>Jenette Caldwell</option>
+                        <option>Yuri Berry</option>
+                        <option>Caesar Vance</option>
+                        <option>Doris Wilder</option>
+                        <option>Angelica Ramos</option>
+                        <option>Gavin Joyce</option>
+                        <option>Jennifer Chang</option>
+                        <option>Brenden Wagner</option>
+                        <option>Fiona Green</option>
+                        <option>Shou Itou</option>
+                        <option>Michelle House</option>
+                        <option>Suki Burks</option>
+                        <option>Prescott Bartlett</option>
+                        <option>Gavin Cortez</option>
+                        <option>Martena Mccray</option>
+                        <option>Unity Butler</option>
+                        <option>Howard Hatfield</option>
+                        <option>Hope Fuentes</option>
+                        <option>Vivian Harrell</option>
+                        <option>Timothy Mooney</option>
+                        <option>Jackson Bradshaw</option>
+                        <option>Olivia Liang</option>
+                        <option>Bruno Nash</option>
+                        <option>Sakura Yamamoto</option>
+                        <option>Thor Walton</option>
+                        <option>Finn Camacho</option>
+                        <option>Serge Baldwin</option>
+                        <option>Zenaida Frank</option>
+                        <option>Zorita Serrano</option>
+                        <option>Jennifer Acosta</option>
+                        <option>Cara Stevens</option>
+                        <option>Hermione Butler</option>
+                        <option>Lael Greer</option>
+                        <option>Jonas Alexander</option>
+                        <option>Shad Decker</option>
+                        <option>Michael Bruce</option>
+                        <option>Donna Snider</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <label for="feedbackDe">De</label>
+                      <select class="form-control" id="feedbackDe">
+                        <option>-</option>
+                        <option>Tiger Nixon</option>
+                        <option>Garrett Winters</option>
+                        <option>Ashton Cox</option>
+                        <option>Cedric Kelly</option>
+                        <option>Airi Satou</option>
+                        <option>Brielle Williamson</option>
+                        <option>Herrod Chandler</option>
+                        <option>Rhona Davidson</option>
+                        <option>Colleen Hurst</option>
+                        <option>Sonya Frost</option>
+                        <option>Jena Gaines</option>
+                        <option>Quinn Flynn</option>
+                        <option>Charde Marshall</option>
+                        <option>Haley Kennedy</option>
+                        <option>Tatyana Fitzpatrick</option>
+                        <option>Michael Silva</option>
+                        <option>Paul Byrd</option>
+                        <option>Gloria Little</option>
+                        <option>Bradley Greer</option>
+                        <option>Dai Rios</option>
+                        <option>Jenette Caldwell</option>
+                        <option>Yuri Berry</option>
+                        <option>Caesar Vance</option>
+                        <option>Doris Wilder</option>
+                        <option>Angelica Ramos</option>
+                        <option>Gavin Joyce</option>
+                        <option>Jennifer Chang</option>
+                        <option>Brenden Wagner</option>
+                        <option>Fiona Green</option>
+                        <option>Shou Itou</option>
+                        <option>Michelle House</option>
+                        <option>Suki Burks</option>
+                        <option>Prescott Bartlett</option>
+                        <option>Gavin Cortez</option>
+                        <option>Martena Mccray</option>
+                        <option>Unity Butler</option>
+                        <option>Howard Hatfield</option>
+                        <option>Hope Fuentes</option>
+                        <option>Vivian Harrell</option>
+                        <option>Timothy Mooney</option>
+                        <option>Jackson Bradshaw</option>
+                        <option>Olivia Liang</option>
+                        <option>Bruno Nash</option>
+                        <option>Sakura Yamamoto</option>
+                        <option>Thor Walton</option>
+                        <option>Finn Camacho</option>
+                        <option>Serge Baldwin</option>
+                        <option>Zenaida Frank</option>
+                        <option>Zorita Serrano</option>
+                        <option>Jennifer Acosta</option>
+                        <option>Cara Stevens</option>
+                        <option>Hermione Butler</option>
+                        <option>Lael Greer</option>
+                        <option>Jonas Alexander</option>
+                        <option>Shad Decker</option>
+                        <option>Michael Bruce</option>
+                        <option>Donna Snider</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-7">
+                    <div class="form-label-group">
+                        <div class="form-label-group">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8">
+                                  <label>Qual é sua satisfação em relação ao Prazo?</label>
+                              </div>
+                              <div class="col-md-4">
+                                <span id="prazoRate" class="rating-faces"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-label-group">
+                      <input type="text" id="prazo" class="form-control" placeholder="Observações" required="required">
+                      <label for="prazo">Observações</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-7">
+                    <div class="form-label-group">
+                        <div class="form-label-group">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8">
+                                  <label>Qual é sua satisfação em relação a Qualidade?</label>
+                              </div>
+                              <div class="col-md-4">
+                                <span id="qualidadeRate" class="rating-faces"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-label-group">
+                      <input type="text" id="qualidade" class="form-control" placeholder="Observações" required="required">
+                      <label for="qualidade">Observações</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-7">
+                    <div class="form-label-group">
+                        <div class="form-label-group">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8">
+                                  <label>Qual é sua satisfação em relação a linguagem do funcionário?</label>
+                              </div>
+                              <div class="col-md-4">
+                                <span id="linguagemRate" class="rating-faces"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-label-group">
+                      <input type="text" id="linguagem" class="form-control" placeholder="Observações" required="required">
+                      <label for="linguagem">Observações</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-7">
+                    <div class="form-label-group">
+                        <div class="form-label-group">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8">
+                                  <label>Qual é sua satisfação em relação ao comportamento do funcionáro sob pressão?</label>
+                              </div>
+                              <div class="col-md-4">
+                                <span id="pressaoRate" class="rating-faces"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-label-group">
+                      <input type="text" id="pressao" class="form-control" placeholder="Observações" required="required">
+                      <label for="pressao">Observações</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-7">
+                    <div class="form-label-group">
+                        <div class="form-label-group">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8">
+                                  <label>Qual é sua satisfação em relação ao respeito as normas do compliance?</label>
+                              </div>
+                              <div class="col-md-4">
+                                <span id="complianceRate" class="rating-faces"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-label-group">
+                      <input type="text" id="compliance" class="form-control" placeholder="Observações" required="required">
+                      <label for="compliance">Observações</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-5">
+                    <div class="form-label-group">
+                      <input type="number" id="quantidadeDeFaltas" class="form-control" placeholder="Quantidade de faltas" required="required">
+                      <label for="quantidadeDeFaltas">Quantidade de faltas</label>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="form-label-group">
+                      <input type="text" id="faltas" class="form-control" placeholder="Observações" required="required">
+                      <label for="faltas">Observações</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-5">
+                    <div class="form-label-group">
+                      <input type="number" id="quantidadeDeEntrega" class="form-control" placeholder="Quantidade de faltas" required="required">
+                      <label for="quantidadeDeEntrega">Quantidade de entregas</label>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="form-label-group">
+                      <input type="text" id="entrega" class="form-control" placeholder="Observações" required="required">
+                      <label for="entrega">Observações</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="btn btn-primary btn-block" href="tables.html">Salvar</a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="vendor/mdb/js/mdb.min.js"></script>
+  <script src="vendor/mdb/js/addons/rating.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/form-feedback.js"></script>
+
+</body>
+
+</html>

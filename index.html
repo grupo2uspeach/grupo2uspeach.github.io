@@ -1,66 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="shortcut icon" type="image/png" href="img/favicon.jpg">
-        
-        <title>Employee Monitor</title>
-    </head>
-    <body>
-        <header class="header">
-            <section class="header__title">Employee Monitor</section>
-            <nav class="header__navigation">
-                <ul>
-                    <li>
-                        <a href="/" class="header__navigation_item">Home</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main class="main">
-            <table class="table" cellspacing="0">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">Employee Happiness</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar por..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Usuário</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="login.html">Login</a>
+          <a class="dropdown-item" href="register.html">Registre-se</a>
+          <a class="dropdown-item" href="forgot-password.html">Esqueceu a senha?</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Funcionários</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="tables.html">Listagem</a>
+          <a class="dropdown-item" href="form-employee.html">Cadastrar</a>
+        </div>
+      </li>
+      <li class="nav-item">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-star"></i>
+          <span>Feedback</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="form-feedback.html">Cadastrar</a>
+        </div>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Overview</li>
+        </ol>
+
+        <!-- Area Chart Example-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Avaliação geral dos funcionários</div>
+          <div class="card-body">
+            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Funcionários</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
-                        <th class="table__title">Id</th>
-                        <th class="table__title">Nome</th>
-                        <th class="table__title">Cargo</th>
-                        <th class="table__title">Status Avaliação</th>
-                        <th class="table__title">Avaliar</th>
-                        <th class="table__title">Exportar</th>
-                    </tr>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Salário</th>
+                    <th>Data de início</th>
+                    <th>Ações</th>
+                  </tr>
                 </thead>
+                <tfoot>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Salário</th>
+                    <th>Data de início</th>
+                    <th>Ações</th>
+                  </tr>
+                </tfoot>
                 <tbody>
-                    <tr class="table__line">
-                        <td class="table__content">1</td>
-                        <td class="table__content">Thiago Ventura</td>
-                        <td class="table__content">Desenvolvedor Pleno</td>
-                        <td class="table__content">Finalizado</td>
-                        <td class="table__content"><a href="/feedback.html">Avaliar</a></td>
-                        <td class="table__content"><a href="#">PDF</a></td>
-                    </tr>
-                    <tr class="table__line">
-                        <td class="table__content">2</td>
-                        <td class="table__content">Pedro Gabriel</td>
-                        <td class="table__content">Analista de Marketing Pleno</td>
-                        <td class="table__content">Parcial</td>
-                        <td class="table__content"><a href="/feedback.html">Avaliar</a></td>
-                        <td class="table__content"><a href="#">PDF</a></td>
-                    </tr>
-                    <tr class="table__line">
-                        <td class="table__content">3</td>
-                        <td class="table__content">Julio Cesar</td>
-                        <td class="table__content">Coordenador de Operação</td>
-                        <td class="table__content">Não iniciado</td>
-                        <td class="table__content"><a href="/feedback.html">Avaliar</a></td>
-                        <td class="table__content"><a href="#">PDF</a></td>
-                    </tr>
+                  <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>R$ 320.800</td>
+                    <td>2011/04/25</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Garrett Winters</td>
+                    <td>Accountant</td>
+                    <td>R$ 170.750</td>
+                    <td>2011/07/25</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Ashton Cox</td>
+                    <td>Junior Technical Author</td>
+                    <td>R$ 86.000</td>
+                    <td>2009/01/12</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Cedric Kelly</td>
+                    <td>Senior Javascript Developer</td>
+                    <td>R$ 433.060</td>
+                    <td>2012/03/29</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Airi Satou</td>
+                    <td>Accountant</td>
+                    <td>R$ 162.700</td>
+                    <td>2008/11/28</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Brielle Williamson</td>
+                    <td>Integration Specialist</td>
+                    <td>R$ 372.000</td>
+                    <td>2012/12/02</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Herrod Chandler</td>
+                    <td>Sales Assistant</td>
+                    <td>R$ 137.500</td>
+                    <td>2012/08/06</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Rhona Davidson</td>
+                    <td>Integration Specialist</td>
+                    <td>R$ 327.900</td>
+                    <td>2010/10/14</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Colleen Hurst</td>
+                    <td>Javascript Developer</td>
+                    <td>R$ 205.500</td>
+                    <td>2009/09/15</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Sonya Frost</td>
+                    <td>Software Engineer</td>
+                    <td>R$ 103.600</td>
+                    <td>2008/12/13</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Jena Gaines</td>
+                    <td>Office Manager</td>
+                    <td>R$ 90.560</td>
+                    <td>2008/12/19</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Quinn Flynn</td>
+                    <td>Support Lead</td>
+                    <td>R$ 342.000</td>
+                    <td>2013/03/03</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Charde Marshall</td>
+                    <td>Regional Director</td>
+                    <td>R$ 470.600</td>
+                    <td>2008/10/16</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Haley Kennedy</td>
+                    <td>Senior Marketing Designer</td>
+                    <td>R$ 313.500</td>
+                    <td>2012/12/18</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Tatyana Fitzpatrick</td>
+                    <td>Regional Director</td>
+                    <td>R$ 385.750</td>
+                    <td>2010/03/17</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Michael Silva</td>
+                    <td>Marketing Designer</td>
+                    <td>R$ 198.500</td>
+                    <td>2012/11/27</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Paul Byrd</td>
+                    <td>Chief Financial Officer (CFO)</td>
+                    <td>R$ 725.000</td>
+                    <td>2010/06/09</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Gloria Little</td>
+                    <td>Systems Administrator</td>
+                    <td>R$ 237.500</td>
+                    <td>2009/04/10</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Bradley Greer</td>
+                    <td>Software Engineer</td>
+                    <td>R$ 132.000</td>
+                    <td>2012/10/13</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Dai Rios</td>
+                    <td>Personnel Lead</td>
+                    <td>R$ 217.500</td>
+                    <td>2012/09/26</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Jenette Caldwell</td>
+                    <td>Development Lead</td>
+                    <td>R$ 345.000</td>
+                    <td>2011/09/03</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Yuri Berry</td>
+                    <td>Chief Marketing Officer (CMO)</td>
+                    <td>R$ 675.000</td>
+                    <td>2009/06/25</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Caesar Vance</td>
+                    <td>Pre-Sales Support</td>
+                    <td>R$ 106.450</td>
+                    <td>2011/12/12</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Doris Wilder</td>
+                    <td>Sales Assistant</td>
+                    <td>R$ 85.600</td>
+                    <td>2010/09/20</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Angelica Ramos</td>
+                    <td>Chief Executive Officer (CEO)</td>
+                    <td>R$ 1.200</td>
+                    <td>2009/10/09</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Gavin Joyce</td>
+                    <td>Developer</td>
+                    <td>R$ 92.575</td>
+                    <td>2010/12/22</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Jennifer Chang</td>
+                    <td>Regional Director</td>
+                    <td>R$ 357.650</td>
+                    <td>2010/11/14</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Brenden Wagner</td>
+                    <td>Software Engineer</td>
+                    <td>R$ 206.850</td>
+                    <td>2011/06/07</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Fiona Green</td>
+                    <td>Chief Operating Officer (COO)</td>
+                    <td>R$ 850.000</td>
+                    <td>2010/03/11</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Shou Itou</td>
+                    <td>Regional Marketing</td>
+                    <td>R$ 163.000</td>
+                    <td>2011/08/14</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Michelle House</td>
+                    <td>Integration Specialist</td>
+                    <td>R$ 95.400</td>
+                    <td>2011/06/02</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Suki Burks</td>
+                    <td>Developer</td>
+                    <td>R$ 114.500</td>
+                    <td>2009/10/22</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Prescott Bartlett</td>
+                    <td>Technical Author</td>
+                    <td>R$ 145.000</td>
+                    <td>2011/05/07</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Gavin Cortez</td>
+                    <td>Team Leader</td>
+                    <td>R$ 235.500</td>
+                    <td>2008/10/26</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Martena Mccray</td>
+                    <td>Post-Sales support</td>
+                    <td>R$ 324.050</td>
+                    <td>2011/03/09</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Unity Butler</td>
+                    <td>Marketing Designer</td>
+                    <td>R$ 85.675</td>
+                    <td>2009/12/09</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Howard Hatfield</td>
+                    <td>Office Manager</td>
+                    <td>R$ 164.500</td>
+                    <td>2008/12/16</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Hope Fuentes</td>
+                    <td>Secretary</td>
+                    <td>R$ 109.850</td>
+                    <td>2010/02/12</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Vivian Harrell</td>
+                    <td>Financial Controller</td>
+                    <td>R$ 452.500</td>
+                    <td>2009/02/14</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Timothy Mooney</td>
+                    <td>Office Manager</td>
+                    <td>R$ 136.200</td>
+                    <td>2008/12/11</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Jackson Bradshaw</td>
+                    <td>Director</td>
+                    <td>R$ 645.750</td>
+                    <td>2008/09/26</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Olivia Liang</td>
+                    <td>Support Engineer</td>
+                    <td>R$ 234.500</td>
+                    <td>2011/02/03</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Bruno Nash</td>
+                    <td>Software Engineer</td>
+                    <td>R$ 163.500</td>
+                    <td>2011/05/03</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Sakura Yamamoto</td>
+                    <td>Support Engineer</td>
+                    <td>R$ 139.575</td>
+                    <td>2009/08/19</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Thor Walton</td>
+                    <td>Developer</td>
+                    <td>R$ 98.540</td>
+                    <td>2013/08/11</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Finn Camacho</td>
+                    <td>Support Engineer</td>
+                    <td>R$ 87.500</td>
+                    <td>2009/07/07</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Serge Baldwin</td>
+                    <td>Data Coordinator</td>
+                    <td>R$ 138.575</td>
+                    <td>2012/04/09</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Zenaida Frank</td>
+                    <td>Software Engineer</td>
+                    <td>R$ 125.250</td>
+                    <td>2010/01/04</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Zorita Serrano</td>
+                    <td>Software Engineer</td>
+                    <td>R$ 115.000</td>
+                    <td>2012/06/01</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Jennifer Acosta</td>
+                    <td>Junior Javascript Developer</td>
+                    <td>R$ 75.650</td>
+                    <td>2013/02/01</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Cara Stevens</td>
+                    <td>Sales Assistant</td>
+                    <td>R$ 145.600</td>
+                    <td>2011/12/06</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Hermione Butler</td>
+                    <td>Regional Director</td>
+                    <td>R$ 356.250</td>
+                    <td>2011/03/21</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Lael Greer</td>
+                    <td>Systems Administrator</td>
+                    <td>R$ 103.500</td>
+                    <td>2009/02/27</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Jonas Alexander</td>
+                    <td>Developer</td>
+                    <td>R$ 86.500</td>
+                    <td>2010/07/14</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Shad Decker</td>
+                    <td>Regional Director</td>
+                    <td>R$ 183.000</td>
+                    <td>2008/11/13</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Michael Bruce</td>
+                    <td>Javascript Developer</td>
+                    <td>R$ 183.000</td>
+                    <td>2011/06/27</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
+                  <tr>
+                    <td>Donna Snider</td>
+                    <td>Customer Support</td>
+                    <td>R$ 112.000</td>
+                    <td>2011/01/25</td>
+                    <td><a class="btn btn-dark" href="#">Gerar PDF</a> <a class="btn btn-dark" href="form-feedback.html">Cadastrar feedback</a></td>
+                  </tr>
                 </tbody>
-            </table>
-        </main>
-    </body>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Atualizado ontem as 11:59 PM</div>
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/mdb/js/mdb.min.js"></script>
+  <script src="vendor/mdb/js/addons/rating.min.js"></script>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+
+</body>
+
 </html>
