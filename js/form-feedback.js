@@ -7,6 +7,8 @@
     $('#linguagemRate').mdbRate();
     $('#pressaoRate').mdbRate();
     $('#complianceRate').mdbRate();
+    $('#proatividadeRate').mdbRate();
+    $('#interpessoalRate').mdbRate();
   });
 
   // Toggle the side navigation
